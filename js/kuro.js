@@ -49,7 +49,8 @@ function chat(token) {
     });
 
     TAPIC.listen('message', function (e) {
-      output = '<strong>' + e.from + '</strong>:   ' + e.text;
+      //output = '<strong>' + e.from + '</strong>:   ' + e.text; //old with username
+      output = e.text //like nico nico
       writeChat( output, e.color );
     });
 }
