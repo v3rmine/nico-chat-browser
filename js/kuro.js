@@ -53,12 +53,8 @@ function chat(token) {
     });
 
     TAPIC.listen('message', function (e) {
-      var output = '<strong style="color: ' + e.color + ';">' +
-        e.from +
-        '</strong>' +
-        (e.action ? '<span style="color: ' + e.color + ';">' : ':&nbsp;&nbsp;') +
-        e.text +
-        (e.action ? '</span>' : '' );
+      var output = '<p style="color: '+ e.color +';">' '<strong>' +
+        e.from + '</strong>: ' + e.text + '</p>';
         // e.emotes is the emotes, e.g. '25:0-4,12-16/1902:6-10'
         // https://github.com/justintv/Twitch-API/blob/master/IRC.md#privmsg
         // e.badges is an array of badges: https://discuss.dev.twitch.tv/t/beta-badge-api/6388
