@@ -47,10 +47,9 @@ function chat(token) {
       //TAPIC.setRefreshRate(10);
 
       // This is also required for a lot of things to work
-      // TAPIC.joinChannel(username, function () {
-      //       tests();
-      //   });
-         TAPIC.joinChannel('kuromachiii');
+       TAPIC.joinChannel(username, function () {
+             tests();
+         });
     });
 
     TAPIC.listen('message', function (e) {
