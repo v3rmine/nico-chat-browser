@@ -47,14 +47,18 @@ function chat(token) {
       //TAPIC.setRefreshRate(10);
 
       // This is also required for a lot of things to work
-      //TAPIC.joinChannel(username, function () {
-      //      tests();
-      //  });
-        TAPIC.joinChannel('kuromachii');
+      // TAPIC.joinChannel(username, function () {
+      //       tests();
+      //   });
+         TAPIC.joinChannel('kuromachiii');
     });
 
     TAPIC.listen('message', function (e) {
-      var output = '<strong style="color: ' + e.color + ';">' +
+      var output = (e.mod ? '<img src="http://chat-badges.s3.amazonaws.com/mod.png">' : '') +
+        (e.sub  ?'<img src="' + TAPIC.getSubBadgeUrl() + '">' : '') +
+        (e.turbo ? '<img src="http://chat-badges.s3.amazonaws.com/turbo.png">' : '') +
+        (e.streamer ? '<img src="http://chat-badges.s3.amazonaws.com/broadcaster.png">' : '') +
+        '<strong style="color: ' + e.color + ';">' +
         e.from +
         '</strong>' +
         (e.action ? '<span style="color: ' + e.color + ';">' : ':&nbsp;&nbsp;') +
