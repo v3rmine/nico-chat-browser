@@ -41,7 +41,7 @@ function chat(token) {
     TAPIC.setup(oauth, function (username) {
 
       // By default, TAPIC refreshes API information every 5 seconds, which is the minimum.
-      //TAPIC.setRefreshRate(10);
+      TAPIC.setRefreshRate(5);
 
        TAPIC.joinChannel(username, function () {
              tests();
@@ -49,7 +49,7 @@ function chat(token) {
     });
 
     TAPIC.listen('message', function (e) {
-      output = '<strong>' + e.from + '</strong>:' + e.text;
+      output = '<strong>' + e.from + '</strong>:   ' + e.text;
       writeChat( output, e.color );
     });
 }
