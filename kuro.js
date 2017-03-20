@@ -16,26 +16,26 @@ function check() {
 
 function generate() {
   //var chanName = document.getElementById('chanID');
-  var chanName = 'creditsToKuromachii'
+  //var chanName = 'creditsToKuromachii'
   var parser = document.createElement('a');
   parser.href = window.location.href;
   var hash = parser.hash.replace('#access_token=','')
   hash = hash.replace('&scope=chat_login','')
 
-  window.location = 'http://nico.kuro.ml/chat?token='+hash+'&chan_name='+chanName;
+  window.location = 'http://nico.kuro.ml/chat?token='+hash;//+'&chan_name='+chanName;
 }
 
 function load() {
   var parser = document.createElement('a');
   parser.href = window.location.href;
-  var token = parser.search.split("&chan_name=")[0].split("token=")[1];
-  var channelName = parser.search.split('&chan_name=').pop();
+  var token = parser.search.split("token")[1];
+  //var token = parser.search.split("&chan_name=")[0].split("token=")[1];
+  //var channelName = parser.search.split('&chan_name=').pop();
 
-  console.log(token);
-  chat(token,channelName);
+  chat(token);
 }
 
-function chat(token,channelName) {
+function chat(token) {
     var oauth = token;
 
     // You have to run .setup() before anything besides .listen()
@@ -59,14 +59,7 @@ function chat(token,channelName) {
         console.info(e);
     });
     TAPIC.listen('message', function (e) {
-      var output = (e.mod ? '<img src="http://chat-badges.s3.amazonaws.com/mod.png">' : '') +
-        (e.sub  ?'<img src="' + TAPIC.getSubBadgeUrl() + '">' : '') +
-        (e.turbo ? '<img src="http://chat-badges.s3.amazonaws.com/turbo.png">' : '') +
-        (e.streamer ? '<img src="http://chat-badges.s3.amazonaws.com/broadcaster.png">' : '') +
-        '<strong style="color: ' + e.color + ';">' +
-        e.from +
-        '</strong>' +
-        (e.action ? '<span style="color: ' + e.color + ';">' : ':&nbsp;&nbsp;') +
+      var output = (e.action ? '<span style="color: ' + e.color + ';">' : ':&nbsp;&nbsp;') +
         e.text +
         (e.action ? '</span>' : '' );
         // e.emotes is the emotes, e.g. '25:0-4,12-16/1902:6-10'
