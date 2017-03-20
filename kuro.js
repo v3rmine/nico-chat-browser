@@ -44,19 +44,20 @@ function chat(token) {
 
       // By default, TAPIC refreshes API information every 5 seconds, which is the minimum.
       // Setting the refresh rate is optional.
-      TAPIC.setRefreshRate(10);
+      //TAPIC.setRefreshRate(10);
 
       // This is also required for a lot of things to work
-      TAPIC.joinChannel(username, function () {
-            tests();
-        });
+      //TAPIC.joinChannel(username, function () {
+      //      tests();
+      //  });
+        TAPIC.joinChannel('kuromachii');
     });
 
     TAPIC.listen('message', function (e) {
-      var output = (e.mod ? : '') +
-        (e.sub  ? : '') +
-        (e.turbo ? : '') +
-        (e.streamer ? : '') +
+      var output = (e.mod ? '') +
+        (e.sub  ? '') +
+        (e.turbo ? '') +
+        (e.streamer ? '') +
         '<strong style="color: ' + e.color + ';">' +
         e.from +
         '</strong>' +
