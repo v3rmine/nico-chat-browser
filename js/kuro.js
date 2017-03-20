@@ -49,7 +49,6 @@ function chat(token) {
     });
 
     TAPIC.listen('message', function (e) {
-      var chat = new post(e.from, e.text, e.color);
       output = '<strong>' + e.from + '</strong>:' + e.text;
       writeChat( output, e.color );
     });
