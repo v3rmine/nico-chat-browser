@@ -32,38 +32,26 @@ function load() {
   //var token = parser.search.split("&chan_name=")[0].split("token=")[1];
   //var channelName = parser.search.split('&chan_name=').pop();
 
-  //console.log(token);
   chat(token);
 }
 
 function chat(token) {
     var oauth = token;
 
-    // You have to run .setup() before anything besides .listen()
     TAPIC.setup(oauth, function (username) {
 
       // By default, TAPIC refreshes API information every 5 seconds, which is the minimum.
-      // Setting the refresh rate is optional.
       //TAPIC.setRefreshRate(10);
 
-      // This is also required for a lot of things to work
        TAPIC.joinChannel(username, function () {
              tests();
          });
     });
 
     TAPIC.listen('message', function (e) {
-      var output = '<p style="color: ' + e.color + ';"> <strong>' + e.from + '</strong>: ' + e.text + '</p>';
-        // e.emotes is the emotes, e.g. '25:0-4,12-16/1902:6-10'
-        // https://github.com/justintv/Twitch-API/blob/master/IRC.md#privmsg
-        // e.badges is an array of badges: https://discuss.dev.twitch.tv/t/beta-badge-api/6388
-      writeChat( output );
+      var chat = new post(e.from, e.text, e.color);
+      writeChat( chat.output );
     });
-    // TAPIC.listen('echoChat', function (e) {
-    //   var output = '<strong style="color: ' + TAPIC.getColor() + ';">' + TAPIC.getDisplayName() +
-    //     '</strong> : ' + e;
-    //   writeChat( output );
-    // });
 }
 
 // This is for the webpage's chat, it doesn't have anything directly to do with TAPIC.js
@@ -71,3 +59,9 @@ function writeChat(msg) {
   document.getElementById('chat').innerHTML += msg;
   document.getElementById('chat').scrollTop = Number.MAX_SAFE_INTEGER;
 }
+
+var post = class {
+  constructor(username, message, color) {
+    this.output = '<p style="color: ' + color + ';"> <strong>' + username + '</strong>: ' + message + '</p>';
+  }
+};
