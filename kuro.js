@@ -28,7 +28,7 @@ function generate() {
 function load() {
   var parser = document.createElement('a');
   parser.href = window.location.href;
-  var token = parser.search.split("token")[1];
+  var token = parser.search.split("token=")[1];
   //var token = parser.search.split("&chan_name=")[0].split("token=")[1];
   //var channelName = parser.search.split('&chan_name=').pop();
 
