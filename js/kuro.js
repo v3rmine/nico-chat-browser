@@ -59,10 +59,13 @@ function chat(token) {
 function writeChat(msg, color) {
   // document.getElementById('chat').innerHTML += msg;
   // document.getElementById('chat').scrollTop = Number.MAX_SAFE_INTEGER;
+  //
   $(function () {
-    vertical = 50 + Math.floor((Math.random() * 50) + 0) * Math.floor((Math.random() * 3) + -1);
+    //vertical = 50 + Math.floor((Math.random() * 50) + 0) * Math.floor((Math.random() * 3) + -1); //ver 1
+    vertical = 20 + Math.floor((Math.random() * 25) + 0) * Math.round(Math.random()) * 2 - 1; //ver 2
     size = Math.floor((Math.random() * 4) + 3);
     var rez = $('<div class="popup" style="top:'+ vertical +'vh;font-size:'+ size +'vmin;color:'+ color +';">'+ msg +'</div>');
+    console.log(rez);
     $('#chat').append(rez);
     setTimeout( function() { rez.remove(); }, 60000);
   });

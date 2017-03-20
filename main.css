@@ -9,6 +9,11 @@
 
 #chat {
   font-family: 'SCBold';
+  color: #fff;
+  text-shadow: -0.3vmin 0 0 rgba(0, 0, 0, 0.8),
+             0.3vmin 0 0 rgba(0, 0, 0, 0.8),
+             0 -0.3vmin 0 rgba(0, 0, 0, 0.8),
+             0 0.3vmin 0 rgba(0, 0, 0, 0.8);
 }
 
 .smth {
