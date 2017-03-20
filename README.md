@@ -1,5 +1,5 @@
 # nico-chat-browser
-A twitch chat overlay like comments on the famous website Nico Nico Douga
+A twitch chat overlay like comments on the famous website Nico Nico Douga (website [here](http://nico.kuro.ml/))
 
 Dev by [Kuromachii](http://twitter.com/blackksoulls) in one day for twitch and maybe later other services :p
 
