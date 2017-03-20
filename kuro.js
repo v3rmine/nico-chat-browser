@@ -32,7 +32,7 @@ function load() {
   //var token = parser.search.split("&chan_name=")[0].split("token=")[1];
   //var channelName = parser.search.split('&chan_name=').pop();
 
-  console.log(token);
+  //console.log(token);
   chat(token);
 }
 
@@ -53,11 +53,7 @@ function chat(token) {
     });
 
     TAPIC.listen('message', function (e) {
-      var output = (e.mod ? '<img src="http://chat-badges.s3.amazonaws.com/mod.png">' : '') +
-        (e.sub  ?'<img src="' + TAPIC.getSubBadgeUrl() + '">' : '') +
-        (e.turbo ? '<img src="http://chat-badges.s3.amazonaws.com/turbo.png">' : '') +
-        (e.streamer ? '<img src="http://chat-badges.s3.amazonaws.com/broadcaster.png">' : '') +
-        '<strong style="color: ' + e.color + ';">' +
+      var output = '<strong style="color: ' + e.color + ';">' +
         e.from +
         '</strong>' +
         (e.action ? '<span style="color: ' + e.color + ';">' : ':&nbsp;&nbsp;') +
