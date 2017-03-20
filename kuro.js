@@ -54,11 +54,7 @@ function chat(token) {
     });
 
     TAPIC.listen('message', function (e) {
-      var output = (e.mod ? '') +
-        (e.sub  ? '') +
-        (e.turbo ? '') +
-        (e.streamer ? '') +
-        '<strong style="color: ' + e.color + ';">' +
+      var output = '<strong style="color: ' + e.color + ';">' +
         e.from +
         '</strong>' +
         (e.action ? '<span style="color: ' + e.color + ';">' : ':&nbsp;&nbsp;') +
