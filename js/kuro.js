@@ -53,12 +53,12 @@ function chat(token) {
     });
 
     TAPIC.listen('message', function (e) {
-      var output = '<p style="font-family:\'SCBold\'">'+'<strong style="color: ' + e.color + ';">' +
+      var output = '<strong style="color: ' + e.color + ';">' +
         e.from +
         '</strong>' +
         (e.action ? '<span style="color: ' + e.color + ';">' : ':&nbsp;&nbsp;') +
         e.text +
-        (e.action ? '</span>' : '' )+'</p>';
+        (e.action ? '</span>' : '' );
         // e.emotes is the emotes, e.g. '25:0-4,12-16/1902:6-10'
         // https://github.com/justintv/Twitch-API/blob/master/IRC.md#privmsg
         // e.badges is an array of badges: https://discuss.dev.twitch.tv/t/beta-badge-api/6388
@@ -73,6 +73,6 @@ function chat(token) {
 
 // This is for the webpage's chat, it doesn't have anything directly to do with TAPIC.js
 function writeChat(msg) {
-  document.getElementById('chat').innerHTML += msg;
+  document.getElementById('chat').innerHTML += msg + '<br/>';
   document.getElementById('chat').scrollTop = Number.MAX_SAFE_INTEGER;
 }
