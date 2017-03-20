@@ -1,0 +1,16 @@
+@font-face {
+  font-family:"SCBold";
+  src:url('fonts/SpaceColony-Bold.ttf');
+}
+@font-face {
+  font-family:"SCMed";
+  src:url('SpaceColony-Medium.ttf');
+}
+
+#chat {
+  font-family: 'SCBold';
+}
+
+* {
+  font-family: 'SCMed';
+}
