@@ -53,7 +53,7 @@ function chat(token) {
     });
 
     TAPIC.listen('message', function (e) {
-      var output = '<p>'+'<strong style="color: ' + e.color + ';">' +
+      var output = '<p style="font-family:\'SCBold\'">'+'<strong style="color: ' + e.color + ';">' +
         e.from +
         '</strong>' +
         (e.action ? '<span style="color: ' + e.color + ';">' : ':&nbsp;&nbsp;') +
@@ -64,15 +64,15 @@ function chat(token) {
         // e.badges is an array of badges: https://discuss.dev.twitch.tv/t/beta-badge-api/6388
       writeChat( output );
     });
-    TAPIC.listen('echoChat', function (e) {
-      var output = '<strong style="color: ' + TAPIC.getColor() + ';">' + TAPIC.getDisplayName() +
-        '</strong> : ' + e;
-      writeChat( output );
-    });
+    // TAPIC.listen('echoChat', function (e) {
+    //   var output = '<strong style="color: ' + TAPIC.getColor() + ';">' + TAPIC.getDisplayName() +
+    //     '</strong> : ' + e;
+    //   writeChat( output );
+    // });
 }
 
 // This is for the webpage's chat, it doesn't have anything directly to do with TAPIC.js
 function writeChat(msg) {
-  document.getElementById('chat').innerHTML += msg + '<br>';
+  document.getElementById('chat').innerHTML += msg;
   document.getElementById('chat').scrollTop = Number.MAX_SAFE_INTEGER;
 }
