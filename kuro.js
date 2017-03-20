@@ -32,6 +32,7 @@ function load() {
   //var token = parser.search.split("&chan_name=")[0].split("token=")[1];
   //var channelName = parser.search.split('&chan_name=').pop();
 
+  console.log(token);
   chat(token);
 }
 
