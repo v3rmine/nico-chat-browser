@@ -50,18 +50,30 @@ function chat(token) {
 
     TAPIC.listen('message', function (e) {
       var chat = new post(e.from, e.text, e.color);
-      writeChat( chat.output );
+      output = '<strong>' + e.from + '</strong>:' + e.text;
+      writeChat( output, e.color );
     });
 }
 
 // This is for the webpage's chat, it doesn't have anything directly to do with TAPIC.js
-function writeChat(msg) {
-  document.getElementById('chat').innerHTML += msg;
-  document.getElementById('chat').scrollTop = Number.MAX_SAFE_INTEGER;
+function writeChat(msg, color) {
+  // document.getElementById('chat').innerHTML += msg;
+  // document.getElementById('chat').scrollTop = Number.MAX_SAFE_INTEGER;
+  $(function () {
+    vertical = 50 + Math.floor((Math.random() * 50) + 0) * Math.floor((Math.random() * 3) + -1);
+    size = Math.floor((Math.random() * 4) + 3);
+    var rez = $('<div class="popup" style="top:'+ vertical +'vh;font-size:'+ size +'vmin;color:'+ color +';">'+ msg +'</div>');
+    $('#chat').append(rez);
+    setTimeout( function() { rez.remove(); }, 60000);
+  });
 }
 
-var post = class {
-  constructor(username, message, color) {
-    this.output = '<p style="color: ' + color + ';"> <strong>' + username + '</strong>: ' + message + '</p>';
-  }
-};
+$("body").css("overflow", "hidden");
+
+// $('button').click(function () {
+//   vertical = 50 + Math.floor((Math.random() * 50) + 0) * Math.floor((Math.random() * 3) + -1);
+//   size = Math.floor((Math.random() * 4) + 3);
+//   var rez = $('<div class="popup" style="top:'+ vertical +'vh;font-size:'+ size +'vmin;">+ 350</div>');
+//   $('#chat').append(rez);
+//   setTimeout( function() { rez.remove(); }, 60000);
+// });

@@ -14,3 +14,26 @@
 .smth {
   font-family: 'SCMed';
 }
+
+#chat {
+    width: auto;
+    height: auto;
+}
+
+#chat .popup {
+    position: absolute;
+    top: 50vh;
+    right: -50px;
+    width: auto;
+    text-align: center;
+    opacity: 0;
+
+	        animation: popup 2.5s ease-in;
+          animation: popup 7s 1 linear;
+}
+
+@keyframes popup {
+	0% 		{ transform: translateX(0vw) scale(0); opacity: 0; }
+	10% 	{ transform: scale(1); opacity: 1;   }
+	100%	{ transform: translateX(-100vw); opacity: 1; }
+}
