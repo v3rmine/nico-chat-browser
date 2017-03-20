@@ -52,15 +52,15 @@ function chat(token) {
         });
     });
 
-    // EventListeners
-    TAPIC.listen('raw', function (e) {
-      // You really don't NEED to see raw messages. But you can if you want.
-      // You can also manually parse the raw messages if you don't trust TAPIC.js
-      // writeChat( '* ' + e );
-        console.info(e);
-    });
     TAPIC.listen('message', function (e) {
-      var output = (e.action ? '<span style="color: ' + e.color + ';">' : ':&nbsp;&nbsp;') +
+      var output = (e.mod ? : '') +
+        (e.sub  ? : '') +
+        (e.turbo ? : '') +
+        (e.streamer ? : '') +
+        '<strong style="color: ' + e.color + ';">' +
+        e.from +
+        '</strong>' +
+        (e.action ? '<span style="color: ' + e.color + ';">' : ':&nbsp;&nbsp;') +
         e.text +
         (e.action ? '</span>' : '' );
         // e.emotes is the emotes, e.g. '25:0-4,12-16/1902:6-10'
