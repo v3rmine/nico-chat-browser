@@ -2,12 +2,12 @@
 A twitch chat overlay like comments on the famous website Nico Nico Douga (website [here](http://nico.kuro.ml/))
 
 ## Todo list
-- [] Settings page (to change:)
-  - [] The color
-  - [] The font (using fonts.google.com or @import url)
-  - [] Max and min font size
-- [] Preview / Test page
-- [] A demo vid
+- [ ] Settings page (to change:)
+  - [ ] The color
+  - [ ] The font (using fonts.google.com or @import url)
+  - [ ] Max and min font size
+- [ ] Preview / Test page
+- [ ] A demo vid
 
 ## About the webapp
 Dev by [Kuromachii](http://twitter.com/blackksoulls) for twitch and maybe later other services :p
