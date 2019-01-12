@@ -1,7 +1,7 @@
 # nico-chat-browser
 **NOT MAINTAINED ANYMORE** when I have time again I will rewrite it completely.
 
-A twitch chat overlay like comments on the famous website Nico Nico Douga (website [here](http://nico.kuro.ml/))
+A twitch chat overlay like comments on the famous website Nico Nico Douga
 
 ## Todo list
 - [ ] Add a config page
